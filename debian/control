@@ -1,0 +1,15 @@
+Source: security-baseline-scanner
+Section: admin
+Priority: optional
+Maintainer: GuhsHosting <guhshosting@users.noreply.github.com>
+Build-Depends: debhelper-compat (= 13), cmake (>= 3.16), g++, python3
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+Homepage: https://github.com/guhshosting/security-baseline-scanner
+
+Package: security-baseline-scanner
+Architecture: linux-any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: conservative read-only Linux security baseline observations
+ Inspect bounded local security evidence and generate text, JSON and Markdown
+ reports. No network access, telemetry, remediation or numerical security score.

@@ -1,0 +1,65 @@
+.TH SECURITY-BASELINE-SCANNER 1 "September 2026" "1.0.0" "User Commands"
+.SH NAME
+security-baseline-scanner \- conservative read-only Linux security observations
+.SH SYNOPSIS
+.B security-baseline-scanner
+.RI [ options ]
+.SH DESCRIPTION
+Inspect local evidence without modifying security settings, invoking system
+management commands or accessing the network. Reports are scoped to the current
+namespaces. No score or compliance certification is produced.
+.SH OPTIONS
+.TP
+.BI "--format " text|json|markdown
+Report format; default text. All formats go to standard output.
+.TP
+.BI "--category " NAME
+Select a category; repeatable.
+.TP
+.BI "--check " ID
+Select a stable rule ID; repeatable. Categories and IDs intersect.
+.TP
+.BI "--root " DIRECTORY
+Read an absolute offline root. Evidence symlinks are rejected. Offline runtime
+evidence can be stale. Never falls back to live evidence.
+.TP
+.B --list-checks
+List IDs, categories and titles. Cannot be combined with scan options.
+.TP
+.BI "--fail-on " problem|deviation
+Exit 1 if a finding meets the selected threshold. Deviation includes problem.
+Unknown and unavailable findings do not trigger these thresholds.
+.TP
+.B --help
+Show usage.
+.TP
+.B --version
+Show version.
+.SH STATUS
+PASS means only the named predicate passed. PROBLEM identifies concrete
+problematic mode bits; DEVIATION requires role-specific review. INFO is an
+observation. UNAVAILABLE means evidence could not be accessed. UNKNOWN means
+no reliable conclusion. NOT_APPLICABLE has a narrowly stated scope.
+.SH EXIT STATUS
+0: report produced, not an assurance of security.
+1: requested failure threshold met.
+2: usage error.
+3: operational or output error. Signals follow Unix conventions.
+.SH SAFETY
+Run unprivileged first. Never install setuid. No remediation is implemented.
+Files are bounded to 1 MiB and special files are rejected. Kernel-managed access
+timestamps or audit records can result from reading. Stalled remote filesystems
+are outside the threat model. Reports are not atomic snapshots.
+.SH LIMITATIONS
+Static configuration does not establish effective SSH, sudo, firewall,
+service or repository policy. Security update freshness is unknown without
+current authoritative data. No network requests or package refreshes occur.
+Container findings need not describe the physical host. Review reports before
+sharing even though account names, hashes and addresses are omitted.
+.SH FILES
+See installed CHECKS.md for all evidence paths and decision rules.
+.SH SEE ALSO
+.BR proc (5),
+.BR sshd_config (5),
+.BR shadow (5),
+.BR sudoers (5)

@@ -1,0 +1,114 @@
+{
+  "files": {
+    "/etc/passwd": {
+      "text": "root:x:0:0:PRIVATE_NAME:/root:/bin/bash\nuser:x:1000:1000::/home/user:/bin/sh\n",
+      "mode": "644"
+    },
+    "/etc/shadow": {
+      "text": "root:!:20000:0:99999:7:::\nuser:$6$PRIVATE_HASH:20000:0:99999:7:::\n",
+      "mode": "640"
+    },
+    "/etc/group": {
+      "text": "root:x:0:\n",
+      "mode": "644"
+    },
+    "/etc/gshadow": {
+      "text": "root:*::\n",
+      "mode": "640"
+    },
+    "/etc/sudoers": {
+      "text": "root ALL=(ALL:ALL) ALL\n@includedir /etc/sudoers.d\n",
+      "mode": "440"
+    },
+    "/etc/ssh/sshd_config": {
+      "text": "Include /etc/ssh/sshd_config.d/*.conf\nPermitRootLogin prohibit-password\n",
+      "mode": "644"
+    },
+    "/etc/login.defs": {
+      "text": "PASS_MAX_DAYS 99999\nPASS_MIN_DAYS 0\nPASS_WARN_AGE 7\n",
+      "mode": "644"
+    },
+    "/tmp": {
+      "text": "",
+      "mode": "1777",
+      "directory": true
+    },
+    "/proc/sys/kernel/osrelease": {
+      "text": "6.12.0-amd64\n",
+      "mode": "644"
+    },
+    "/proc/1/comm": {
+      "text": "systemd\n",
+      "mode": "644"
+    },
+    "/proc/self/mountinfo": {
+      "text": "36 25 0:32 / / rw,relatime - ext4 /dev/PRIVATE_NAME rw\n37 36 0:33 / /tmp rw,nosuid,nodev - tmpfs tmpfs rw\n",
+      "mode": "644"
+    },
+    "/proc/net/tcp": {
+      "text": "sl local_address rem_address st tx_queue rx_queue tr tm->when retrnsmt uid timeout inode\n0: 00000000:0016 00000000:0000 0A 00000000:00000000 00:00000000 00000000 0 0 1234\n",
+      "mode": "644"
+    },
+    "/proc/net/tcp6": {
+      "text": "sl local_address remote_address st tx_queue rx_queue tr tm->when retrnsmt uid timeout inode\n",
+      "mode": "644"
+    },
+    "/sys/kernel/security/lockdown": {
+      "text": "none [integrity] confidentiality\n",
+      "mode": "644"
+    },
+    "/proc/sys/kernel/randomize_va_space": {
+      "text": "2\n",
+      "mode": "644"
+    },
+    "/proc/sys/kernel/kptr_restrict": {
+      "text": "1\n",
+      "mode": "644"
+    },
+    "/proc/sys/kernel/dmesg_restrict": {
+      "text": "1\n",
+      "mode": "644"
+    },
+    "/proc/sys/fs/protected_symlinks": {
+      "text": "1\n",
+      "mode": "644"
+    },
+    "/proc/sys/fs/protected_hardlinks": {
+      "text": "1\n",
+      "mode": "644"
+    },
+    "/proc/sys/fs/protected_fifos": {
+      "text": "1\n",
+      "mode": "644"
+    },
+    "/proc/sys/fs/protected_regular": {
+      "text": "2\n",
+      "mode": "644"
+    },
+    "/etc/os-release": {
+      "text": "ID=rhel\nVERSION_ID=\"9\"\n",
+      "mode": "644"
+    },
+    "/usr/lib/sysimage/rpm": {
+      "text": "",
+      "mode": "644",
+      "directory": true
+    },
+    "/sys/fs/selinux/enforce": {
+      "text": "1\n",
+      "mode": "644"
+    }
+  },
+  "expected": {
+    "SBS-OS-001": "INFO",
+    "SBS-ACC-001": "PASS",
+    "SBS-ACC-002": "PASS",
+    "SBS-FILE-002": "PASS",
+    "SBS-FILE-007": "PASS",
+    "SBS-FW-001": "UNKNOWN",
+    "SBS-SSH-001": "UNKNOWN",
+    "SBS-UPD-001": "UNKNOWN",
+    "SBS-MNT-001": "INFO",
+    "SBS-NET-001": "INFO"
+  }
+}

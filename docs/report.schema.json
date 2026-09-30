@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "security-baseline-scanner report v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "scanner",
+    "version",
+    "scope",
+    "summary",
+    "findings"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "scanner": {
+      "const": "security-baseline-scanner"
+    },
+    "version": {
+      "const": "1.0.0"
+    },
+    "scope": {
+      "enum": [
+        "offline-root",
+        "current-namespaces"
+      ]
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "PASS",
+        "PROBLEM",
+        "DEVIATION",
+        "INFO",
+        "UNAVAILABLE",
+        "NOT_APPLICABLE",
+        "UNKNOWN"
+      ],
+      "properties": {
+        "PASS": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "PROBLEM": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "DEVIATION": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "INFO": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "UNAVAILABLE": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "NOT_APPLICABLE": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "UNKNOWN": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "category",
+          "title",
+          "explanation",
+          "recommendation",
+          "limitations",
+          "status",
+          "severity",
+          "evidence"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "explanation": {
+            "type": "string"
+          },
+          "recommendation": {
+            "type": "string"
+          },
+          "limitations": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "PASS",
+              "PROBLEM",
+              "DEVIATION",
+              "INFO",
+              "UNAVAILABLE",
+              "NOT_APPLICABLE",
+              "UNKNOWN"
+            ]
+          },
+          "severity": {
+            "enum": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

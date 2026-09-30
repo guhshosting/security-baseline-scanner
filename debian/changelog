@@ -1,0 +1,5 @@
+security-baseline-scanner (1.0.0) unstable; urgency=medium
+
+  * Initial release with conservative read-only evidence checks.
+
+ -- GuhsHosting <guhshosting@users.noreply.github.com>  Tue, 15 Sep 2026 12:00:00 +0000

@@ -1,0 +1,41 @@
+{
+  "files": {
+    "/etc/passwd": {
+      "text": "malformed",
+      "mode": "644"
+    },
+    "/etc/shadow": {
+      "text": "not:shadow",
+      "mode": "644"
+    },
+    "/etc/os-release": {
+      "text": "ID=debian\nID=fedora\n",
+      "mode": "644"
+    },
+    "/etc/ssh/sshd_config": {
+      "text": "Include secret\nMatch User root\nPermitRootLogin yes\n",
+      "mode": "644"
+    },
+    "/etc/login.defs": {
+      "text": "PASS_MAX_DAYS 30\nPASS_MAX_DAYS 99999\n",
+      "mode": "644"
+    },
+    "/proc/sys/kernel/randomize_va_space": {
+      "text": "1\n2\n",
+      "mode": "644"
+    },
+    "/sys/kernel/security/lockdown": {
+      "text": "[none] [integrity]",
+      "mode": "644"
+    }
+  },
+  "expected": {
+    "SBS-OS-001": "UNKNOWN",
+    "SBS-ACC-001": "UNKNOWN",
+    "SBS-ACC-002": "UNKNOWN",
+    "SBS-SSH-001": "UNKNOWN",
+    "SBS-AUTH-001": "UNKNOWN",
+    "SBS-KERN-001": "UNKNOWN",
+    "SBS-BOOT-001": "UNKNOWN"
+  }
+}

@@ -1,0 +1,15 @@
+/build*/
+/validation-logs/
+/_CPack_Packages/
+*.deb
+*.rpm
+*.tar.gz
+*.buildinfo
+*.changes
+/debian/.debhelper/
+/debian/debhelper-build-stamp
+/debian/files
+/debian/security-baseline-scanner/
+/debian/*.substvars
+/obj-*/
+__pycache__/

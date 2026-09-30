@@ -1,0 +1,10 @@
+{
+  "files": {},
+  "expected": {
+    "SBS-ACC-001": "UNAVAILABLE",
+    "SBS-SSH-001": "UNAVAILABLE",
+    "SBS-KERN-001": "UNAVAILABLE",
+    "SBS-BOOT-001": "UNAVAILABLE",
+    "SBS-FW-001": "UNKNOWN"
+  }
+}
